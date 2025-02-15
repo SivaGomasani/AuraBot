@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="headerTitle">Aurabot - Interactive Voice & Chat Partner</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="light-mode">
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">
+                <a href="/profile">
+                    <img src="{{ url_for('static', filename='uploads/' + (user.profile_image if user.profile_image else 'default-profile.png')) }}"
+                        alt="Profile Image">
+                    <h2>{{ user['username'] }}</h2>
+                    <p>{{ user['email'] }}</p>
+                    <!-- Display user's email from database -->
+            </div>
+            <ul class="menu">
+                <li><a href="#" onclick="showVoicePopup()" data-translate="changeVoice">Change Voice</a></li>
+                <li><a href="#" data-translate="changeLanguage">Change Language</a></li>
+                <li><a href="#" onclick="openComplaintBox()" data-translate="help">Help</a></li>
+                <li><a href="#" onclick="showAbout()" data-translate="about">About</a></li>
+                <li><a href="#" onclick="showSettings()" data-translate="settings">Settings</a></li>
+                <li><a href="{{ url_for('history') }}" data-translate="history">History</a></li>
+                <li><a href="#" data-translate="guidesFAQ">Guides and FAQ</a></li>
+                <li><a href="#" data-translate="upgrade">Upgrade</a></li>
+                <li><a href="/logout" data-translate="logout">Logout</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <h1 data-translate="headerTitle"><span>AuraBot - </span>Interactive Voice & Chat Partner</h1>
+                <!-- Dark/Light Mode & Child/Adult Mode Switch -->
+                <div class="mode-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="modeToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="modeLabel" data-translate="modeLabel">Light Mode</span>
+
+                    <label class="switch">
+                        <input type="checkbox" id="contentToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="contentLabel" data-translate="contentLabel">Child Mode</span>
+                </div>
+            </div>
+
+            <div class="cards-container" id="cardsContainer">
+                <div class="chat-box" id="chatBox">
+                    <div class="chat-screen" id="chatScreen">
+                        <!-- Chat history will be displayed here -->
+                    </div>
+
+                    <div class="input-container">
+                        <button id="emojiButton" class="icon-button"><i class="fas fa-smile"></i></button>
+                        <div id="emojiPicker">
+                            <!-- Emoji picker content will be populated here -->
+                        </div>
+                        <button id="cameraButton" class="icon-button"><i class="fas fa-camera"></i></button>
+                        <input type="file" id="imageInput" accept="image/*" capture="environment" style="display: none;"
+                            onchange="displayImage(event)">
+                        <button id="micButton" class="icon-button"><i class="fas fa-microphone"></i></button>
+                        <input type="text" id="chatInput" placeholder="Type your query...">
+                        <button id="sendButton" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rights Reserved -->
+            <footer class="footer">
+                <p data-translate="footerText">&copy; 2025 Aurabot. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- About Popup -->
+    <div id="aboutPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('aboutPopup')">&times;</span>
+            <h2 data-translate="aboutTitle">About Aurabot</h2>
+            <p data-translate="aboutText">
+                Aurabot is an AI-powered assistant designed to provide seamless interaction through text and voice
+                commands.
+                It offers a range of features, including voice recognition, smart responses, and automation
+                capabilities.
+            </p>
+            <p data-translate="keyFeaturesTitle">
+                Key Features:
+            <ul>
+                <li>⚡ Voice & Chat-based Interaction</li>
+                <li>🎙️ Real-time Speech Recognition</li>
+                <li>📨 Smart Email Complaint Handling</li>
+                <li>🌐 Multi-Language Support</li>
+                <li>📜 Guides & FAQs for Easy Navigation</li>
+            </ul>
+            </p>
+            <p data-translate="inquiryText">For inquiries, contact: <a
+                    href="mailto:sivagomasani01@gmail.com">sivagomasani01@gmail.com</a></p>
+            <button class="popup-btn" onclick="closePopup('aboutPopup')">Close</button>
+        </div>
+    </div>
+
+    <!-- Complaint Box -->
+    <div id="complaintBox" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('complaintBox')">&times;</span>
+            <h2 data-translate="complaintTitle">Submit a Complaint</h2>
+            <textarea id="complaintText" placeholder="Describe your issue..."></textarea>
+            <button class="popup-btn" onclick="sendComplaint()">Send</button>
+            <button class="popup-btn close-btn" onclick="closePopup('complaintBox')">Close</button>
+        </div>
+    </div>
+
+    <!-- Settings Popup -->
+    <div id="settingsPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('settingsPopup')">&times;</span>
+            <h2 data-translate="settingsTitle">Settings</h2>
+            <ul>
+                <li><a href="/policy" data-translate="privacyPolicy">Privacy & Policy</a></li>
+                <li><a href="/terms" data-translate="termsConditions">Terms & Conditions</a></li>
+                <li>
+                    <label for="ttsToggle" data-translate="ttsToggleLabel">Enable Text-to-Speech</label>
+                    <input type="checkbox" id="ttsToggle" checked>
+                </li>
+            </ul>
+            <button class="popup-btn" onclick="closePopup('settingsPopup')">Close</button>
+        </div>
+    </div>
+
+    <!-- History Popup -->
+    <div id="historyPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('historyPopup')">&times;</span>
+            <h2 data-translate="historyTitle">Search History</h2>
+            <ul id="historyList">
+                {% for entry in history %}
+                <li>{{ entry }}</li>
+                {% endfor %}
+            </ul>
+            <button class="popup-btn" onclick="closePopup('historyPopup')">Close</button>
+        </div>
+    </div>
+    <div id="cameraPopup" class="popup">
+        <div class="popup-content">
+            <h2>Camera Options</h2>
+            <button id="openCameraOption" class="capture-button">Open Camera</button>
+            <button id="uploadImageOption" class="capture-button">Select Image</button>
+            <button class="capture-button" onclick="closePopup('cameraPopup')">Close</button>
+        </div>
+    </div>
+
+    <div id="voicePopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="hidePopup()">&times;</span>
+            <h2>Change Voice</h2>
+            <form id="voiceForm">
+                <label for="voice">Select Voice:</label>
+                <select id="voice" name="voice">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <button type="button" id="setVoiceButton">Set Voice</button>
+                <button onclick="hidePopup()">close</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="languageMenu" style="display:none;">
+        <ul>
+            <li><a href="#" onclick="changeLanguage('en')" data-translate="english">English</a></li>
+            <li><a href="#" onclick="changeLanguage('es')" data-translate="spanish">Spanish</a></li>
+            <li><a href="#" onclick="changeLanguage('fr')" data-translate="french">French</a></li>
+            <li><a href="#" onclick="changeLanguage('de')" data-translate="german">German</a></li>
+            <li><a href="#" onclick="changeLanguage('zh')" data-translate="chinese">Chinese</a></li>
+            <li><a href="#" onclick="changeLanguage('hi')" data-translate="hindi">Hindi</a></li>
+            <li><a href="#" onclick="changeLanguage('ta')" data-translate="tamil">Tamil</a></li>
+            <li><a href="#" onclick="changeLanguage('te')" data-translate="telugu">Telugu</a></li>
+            <li><a href="#" onclick="changeLanguage('kn')" data-translate="kannada">Kannada</a></li>
+            <li><a href="#" onclick="changeLanguage('ar')" data-translate="arabic">Arabic</a></li>
+            <li><a href="#" onclick="changeLanguage('ru')" data-translate="russian">Russian</a></li>
+            <li><a href="#" onclick="changeLanguage('it')" data-translate="italian">Italian</a></li>
+            <li><a href="#" onclick="changeLanguage('pt')" data-translate="portuguese">Portuguese</a></li>
+        </ul>
+    </div>
+
+    <script src="../static/translations.js"></script>
+    <script src="../static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+
+</body>
+
+</html>

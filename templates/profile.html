@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraBot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url("https://img.freepik.com/free-photo/cartoon-ai-robot-scene_23-2151675091.jpg?ga=GA1.1.453783370.1725521868&semt=ais_hybrid") no-repeat;
+            background-position: center;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+            /* Adjusted for proper screen height */
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            /* Changed from scroll to auto to prevent always-visible scroll */
+        }
+
+        /* Header styling */
+        .header {
+            background-color: #4a90e2;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        /* Profile Image Section */
+        .profile-img-container {
+            text-align: center;
+            margin-top: 120px;
+            /* To avoid overlap with fixed header */
+            margin-bottom: 20px;
+        }
+
+        .profile-img-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #4a90e2;
+            object-fit: cover;
+        }
+
+        /* Form styling */
+        form {
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid;
+            padding-top: 20px;
+            border-radius: 8px;
+            box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            /* Allows scrolling */
+            max-height: 80vh;
+            /* Limits the height of the form */
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #00ff55;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="file"] {
+            padding: 3px;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            font-size: 1.1em;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #357ab7;
+        }
+
+        .go-back-button {
+            background-color: #f18585;
+            color: #333;
+            font-size: 1.1em;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .go-back-button:hover {
+            background-color: #999;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            form {
+                width: 90%;
+            }
+        }
+
+        /* Falling Stars Animation */
+        .falling-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .falling-star {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall 2s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -5px;
+                left: calc(100% * var(--left));
+                opacity: 1;
+            }
+
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* Generate falling stars at different positions and speeds */
+        .falling-star:nth-child(odd) {
+            animation-duration: 3s;
+        }
+
+        .falling-star:nth-child(even) {
+            animation-duration: 5s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Falling Stars -->
+    <div class="falling-stars">
+        <div class="falling-star" style="--left: 0.1;"></div>
+        <div class="falling-star" style="--left: 0.2;"></div>
+        <div class="falling-star" style="--left: 0.3;"></div>
+        <div class="falling-star" style="--left: 0.4;"></div>
+        <div class="falling-star" style="--left: 0.5;"></div>
+        <div class="falling-star" style="--left: 0.6;"></div>
+        <div class="falling-star" style="--left: 0.7;"></div>
+        <div class="falling-star" style="--left: 0.8;"></div>
+        <div class="falling-star" style="--left: 0.9;"></div>
+    </div>
+
+    <!-- Fixed Header -->
+    <div class="header">
+        <h1>Update Your Profile</h1>
+    </div>
+
+    <!-- Profile Image Section -->
+    <div class="profile-img-container">
+        <img id="profile-preview"
+            src="{{ url_for('static', filename='uploads/' + (user.profile_image if user.profile_image else 'default-profile.png')) }}"
+            alt="Profile Image">
+    </div>
+
+    <!-- Profile Form -->
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" name="username" value="{{ user.username }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="{{ user.email }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" value="{{ user.phone }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" name="dob" value="{{ user.dob }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" name="address" value="{{ user.address }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" name="city" value="{{ user.city }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="zipcode">Zip Code:</label>
+            <input type="text" name="zipcode" value="{{ user.zipcode }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="profile_image">Profile Image:</label>
+            <input type="file" name="profile_image">
+        </div>
+
+        <button type="submit">Save Changes</button>
+
+        <!-- Go Back Button -->
+        <button type="button" class="go-back-button" onclick="window.history.back();">Go Back</button>
+    </form>
+
+</body>
+
+</html>

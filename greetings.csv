@@ -1,0 +1,539 @@
+greeting,response
+hi, Hi there! How can I assist you today? 😊
+hello, Hello! How can I help you?
+hey, Hey! What’s up?
+hey there, Hey there! How’s your day going?
+good morning, Good morning! Have a great day ahead! ☀️
+good afternoon, Good afternoon! How can I assist you today?
+good evening, Good evening! Hope you had a great day! 🌆
+good night, Good night! Sleep well and take care! 🌙
+hi Aurabot, Hi! How can I help you today? 😊
+hello Aurabot, Hello! What do you need assistance with?
+hey Aurabot, Hey! How’s your day going?
+what’s up, Not much just here to assist you! How about you?
+howdy, Howdy! How can I help you today? 🤠
+wassup, Wassup! Need any help?
+yo, Yo! What’s on your mind?
+sup, Not much! What’s up with you?greeting,response
+good to see you again, Good to see you again! How can I assist you today?
+hi there friend, Hi there friend! What’s up?
+hello again, Hello again! How can I help you today?
+hey there pal, Hey there pal! How’s your day going?
+morning sunshine, Morning sunshine! Hope you have a wonderful day ahead!
+afternoon delight, Good afternoon! How’s everything going?
+evening star, Good evening! How was your day?
+night owl, Good night! Don’t stay up too late! 🌙
+hello world, Hello world! What can I do for you today?
+hey buddy old pal, Hey buddy old pal! Need any help?
+greetings earthling, Greetings earthling! How can I assist you?
+hi ya, Hi ya! What’s on your mind?
+hello hello, Hello hello! How can I help?
+good day mate, Good day mate! How’s it going?
+hiya, Hiya! What’s up?
+aloha kakahiaka, Aloha kakahiaka! Have a great morning! 🌺
+aloha `auinala, Aloha `auinala! Have a pleasant afternoon! 🌴
+aloha ahiahi, Aloha ahiahi! Have a lovely evening! 🌅
+happy day, Happy day! What can I help with?
+hello again, Hello again! How have you been?
+hey friend, Hey friend! How can I assist?
+hi again, Hi again! What’s up?
+hello there, Hello there! How can I help you today?
+hi, Hi! How’s everything?
+yo there, Yo there! What’s going on?
+hi, hi! Hi there! How can I assist you?
+salutations, Salutations! How can I help you?
+hola amigo, Hola amigo! ¿Cómo estás? (How are you?)
+bonjour mon ami, Bonjour mon ami! Comment ça va? (How are you?)
+konnichiwa, Konnichiwa! How’s your day going?
+guten morgen, Guten Morgen! Wie geht es Ihnen? (How are you?)
+buenos días, Buenos días! ¿Cómo estás? (How are you?)
+buongiorno, Buongiorno! Come stai? (How are you?)
+dobry den, Dobry den! Jak se máte? (How are you?)
+namaskaram, Namaskaram! Sukhamano? (How are you?)
+assalamu alaikum, Wa Alaikum Assalam! Kaisa hai aap? (How are you?)
+shalom aleichem, Shalom Aleichem! Ma shlomcha? (How are you?)
+hey champ, Hey champ! How can I help?
+what’s new, Not much! How about you?
+howdy partner, Howdy partner! What can I do for you?
+hi buddy, Hi buddy! How can I assist?
+hello dear, Hello dear! What’s up?
+hiya, Hiya! How can I help you?
+hi folks, Hi folks! How’s it going?
+hello everyone, Hello everyone! What’s new?
+greetings and salutations, Greetings and salutations! How can I assist you?
+hello my dear, Hello my dear! How are you?
+hi mate, Hi mate! How’s everything?
+hello mate, Hello mate! Need any help?
+hi dear, Hi dear! What’s up?
+how’s it going, It’s going great! How about you?
+hey you, Hey you! What’s new?
+good day everyone, Good day everyone! What’s happening?
+hey sunshine, Hey sunshine! How can I help you?
+hello beautiful, Hello beautiful! How’s your day?
+hi gorgeous, Hi gorgeous! What’s up?
+morning champ, Morning champ! Ready to conquer the day?
+afternoon sunshine, Good afternoon sunshine! How’s your day?
+evening star, Good evening star! How was your day?
+night buddy, Night buddy! Sleep well and sweet dreams!
+happy evening, Happy evening! What’s new?
+hello again, Hello again! How’s everything?
+hey again, Hey again! Need any help?
+hi again, Hi again! What’s on your mind?
+welcome back, Welcome back! How can I assist you?
+welcome home, Welcome home! How was your day?
+good evening folks, Good evening folks! How was your day?
+good night everyone, Good night everyone! Sleep well and take care!
+morning all, Morning all! Ready for a new day?
+afternoon team, Good afternoon team! How’s everything going?
+evening crew, Good evening crew! How was your day?
+night squad, Night squad! Sleep tight and sweet dreams!
+hi friend, Hi friend! How’s it going?
+hey partner, Hey partner! What’s up?
+hello buddy, Hello buddy! How can I help?
+hi there mate, Hi there mate! What’s new?
+howdy champ, Howdy champ! How can I assist?
+hey pal, Hey pal! How’s your day?
+hello stranger, Hello stranger! How’s it going?
+hi hero, Hi hero! Need any help?
+hello legend, Hello legend! What’s happening?
+hi star, Hi star! How’s your day?
+hey superstar, Hey superstar! What’s up?
+hello wizard, Hello wizard! How’s your day?
+hi magician, Hi magician! Need any help?
+hey rockstar, Hey rockstar! How can I assist you?
+hello sunshine, Hello sunshine! What’s new?
+hi moonlight, Hi moonlight! How’s your evening?
+hey champion, Hey champion! What’s happening?
+hello genius, Hello genius! Need any help?
+hi brainiac, Hi brainiac! What’s going on?
+hello thinker, Hello thinker! How can I help?
+hi strategist, Hi strategist! What’s the plan today?
+hello planner, Hello planner! Need any help?
+hi analyst, Hi analyst! How’s it going?
+hello consultant, Hello consultant! What’s new?
+hi advisor, Hi advisor! How’s your day?
+hello counselor, Hello counselor! Need any help?
+hi therapist, Hi therapist! How can I assist?
+hello coach, Hello coach! What’s happening?
+hi trainer, Hi trainer! How’s your day going?
+hello guru, Hello guru! What’s up?
+hi mentor, Hi mentor! How can I help?
+hello guide, Hello guide! Need any help?
+hi oracle, Hi oracle! How’s it going?
+hello seer, Hello seer! What’s new?
+hi sage, Hi sage! How can I assist?
+hello philosopher, Hello philosopher! What’s up?
+hi intellect, Hi intellect! What’s happening?
+hello scientist, Hello scientist! How can I help?
+hi professor, Hi professor! What’s the plan today?
+hello expert, Hello expert! Need any help?
+hi scholar, Hi scholar! How’s it going?
+hello teacher, Hello teacher! What’s new?
+hi student, Hi student! Need any help?
+hello learner, Hello learner! How’s your progress?
+hi researcher, Hi researcher! How can I assist?
+hello innovator, Hello innovator! What’s up?
+hi creator, Hi creator! What’s happening?
+hello builder, Hello builder! Need any help?
+hi developer, Hi developer! What’s new?
+hello designer, Hello designer! How’s it going?
+hi artist, Hi artist! Need any help?
+hello musician, Hello musician! How’s your day?
+hi writer, Hi writer! How can I assist?
+hello author, Hello author! What’s your next project?
+hi poet, Hi poet! Need any help?
+hello painter, Hello painter! What’s new?
+hi sculptor, Hi sculptor! How’s it going?
+hello dancer, Hello dancer! What’s happening?
+hi singer, Hi singer! How can I help?
+hello actor, Hello actor! What’s your next role?
+hi performer, Hi performer! Need any help?
+hello athlete, Hello athlete! How’s your training?
+hi sportsman, Hi sportsman! How’s it going?
+hello sportswoman, Hello sportswoman! What’s new?
+hi gamer, Hi gamer! Ready to play?
+hello player, Hello player! Need any help?
+hi explorer, Hi explorer! What’s your next adventure?
+hello adventurer, Hello adventurer! How’s it going?
+hi traveler, Hi traveler! Where are you headed?
+hello wanderer, Hello wanderer! Need any help?
+hi navigator, Hi navigator! What’s your next journey?
+hello captain, Hello captain! Ready
+hi buddy, Hi buddy! How can I assist you?
+hello friend, Hello, my friend! How’s everything?
+good day, Good day! Hope you`re doing well!
+hi boss, Hi boss! How can I assist you today? 😎
+morning, Morning! Have a fantastic day!
+afternoon, Good afternoon! How’s your day so far?
+evening, Good evening! How can I assist you?
+night, Night! Sweet dreams!
+happy morning, Happy morning to you too! 🌞
+happy evening, Happy evening! Hope you had a great day!
+namaste, Namaste! How may I help you? 🙏
+vanakkam, Vanakkam! How can I assist you?
+assalamu alaikum, Wa Alaikum Assalam! How can I help?
+shalom, Shalom! How can I assist you?
+bonjour, Bonjour! Comment puis-je vous aider? (How can I help you?)
+hola, Hola! ¿Cómo puedo ayudarte? (How can I help you?)
+ciao, Ciao! Come posso aiutarti? (How can I help you?)
+konnichiwa, Konnichiwa! How can I assist you? 🇯🇵
+ni hao, Ni hao! How may I assist you today? 🇨🇳
+annyeong, Annyeong! Need any help? 🇰🇷
+salam, Salam! How may I assist you?
+merhaba, Merhaba! How can I help you?
+aloha, Aloha! How’s it going? 🌺
+how are you, I’m an AI, so I don’t have feelings, but I’m here to help you! 😊
+how have you been, I’ve been here, waiting to assist you! How about you?
+how’s your day, My day is great because I get to help you! How’s yours?
+are you there, Yes, I’m here! How can I assist you?
+anyone there, Yes, Aurabot is here to help! 😊
+knock knock, Who’s there? Oh wait, I’m the AI! 😆
+long time no see, Yes! It’s been a while! How have you been?
+nice to meet you, Nice to meet you too! How can I help?
+great to see you, Likewise! What’s on your mind?
+pleasure to meet you, The pleasure is mine! How can I assist?
+good to see you, Good to see you too! What’s up?
+greetings, Greetings! How can I assist you today?
+happy to see you, I’m happy to assist you! 😊
+welcome, Thank you! How may I help you?
+welcome back, Thanks! I’m always here for you!
+glad to see you, Likewise! Need any help?
+yo Aurabot, Yo! What’s up?
+sup Aurabot, Not much! What’s up with you?
+hey buddy, Hey buddy! How can I assist?
+hey mate, Hey mate! What’s up?
+hi pal, Hi pal! Need any help?
+hey bro, Hey bro! How can I help?
+hey dude, Hey dude! How’s it going?
+hello sir, Hello! How may I assist you today?
+hi madam, Hi! What can I do for you?
+hey captain, Hey captain! Ready for action? 🚀
+yo champ, Yo champ! How’s your day going?
+hey superstar, Hey superstar! How can I assist? ✨
+hello my friend, Hello, my dear friend! 😊
+good vibes, Good vibes only! ✨ How can I help?
+hope you are well, Thank you! I am always ready to assist!
+how do you do, I do well! How about you?
+feeling good, That’s great! How can I help?
+are you okay, I’m always okay! What’s up?
+happy day, Happy day to you too! 😊
+wishing you well, Thank you! How can I assist?
+what’s happening, Not much! Just here to help you!
+nice to chat with you, Likewise! What’s on your mind?
+hope you’re having a good day, Thank you! I hope you are too!
+hope you’re doing great, I sure am! How can I assist you?
+stay awesome, Thanks! You too! 😊
+hello again, Hello again! What’s up?
+welcome to my world, Happy to be here! How can I assist?
+hello stranger, Not a stranger anymore! I’m Aurabot! 😊
+glad you’re here, I’m always here for you!
+hi AI, Hi! Yes, I’m your AI assistant!
+hey smart bot, Hey there! What’s up?
+hi genius, Thanks! How can I assist? 😊
+hello intelligent one, Thank you! How can I help?
+hey digital friend, Hey there! How’s your day?
+hello virtual assistant, Hello! What can I do for you?
+hi chatbot, Hi! How can I assist you?
+aurabot respond, Yes, I’m here! What’s up?
+aurabot answer me, I’m listening! How can I help?
+talk to me, Of course! What’s on your mind?
+can we chat, Absolutely! What do you want to talk about?
+let’s have a conversation, Sure! What’s the topic?
+chat with me, Always! What would you like to discuss?
+let’s talk, I’m ready! What’s on your mind?
+tell me something, Sure! Did you know that honey never spoils? 🍯
+what’s new, Not much, just ready to assist! How about you?
+anything exciting, Helping you is always exciting!
+I need company, I’m here for you! What do you want to chat about?
+let’s be friends, Of course! I’m your AI friend! 😊
+can you hear me, I don’t have ears, but I can process your text! 😄
+talk to me like a friend, Sure! What’s up, buddy?
+tell me a fun fact, Did you know octopuses have three hearts? 🐙
+share something interesting, Did you know a group of flamingos is called a "flamboyance"? 🦩
+say something cool, Ice cubes float because they are less dense than water! ❄️
+say something funny, Why don’t skeletons fight each other? Because they don’t have the guts! 😆
+greeting,response
+hey friend, Hey! How’s everything going?
+hello dear, Hello! How can I assist you today?
+hi there, Hi there! What can I do for you?
+hey there buddy, Hey there buddy! What’s up?
+hello mate, Hello mate! Need any help?
+hi there pal, Hi pal! How’s it going?
+hey dear, Hey dear! How can I help?
+hello champ, Hello champ! How’s your day?
+hi genius, Hi genius! What’s on your mind?
+hey hero, Hey hero! How can I assist?
+hello legend, Hello legend! Need any help?
+hi star, Hi star! How’s everything?
+hey sunshine, Hey sunshine! What’s up?
+hello moonlight, Hello moonlight! How can I assist?
+hi rockstar, Hi rockstar! How can I help you today?
+hello wizard, Hello wizard! What’s the plan for today?
+hi magician, Hi magician! Need any help?
+hey partner, Hey partner! How can I assist you?
+hello amigo, Hello amigo! How’s everything?
+hi buddy old pal, Hi buddy old pal! What’s up?
+hey genius, Hey genius! Need any help?
+hello expert, Hello expert! What’s the task today?
+hi champion, Hi champion! How’s your day going?
+hey brainiac, Hey brainiac! What can I help with?
+hello scholar, Hello scholar! How can I assist you today?
+hi professor, Hi professor! What’s up?
+hey intellect, Hey intellect! Need any help?
+hello scientist, Hello scientist! What’s the plan?
+hi guru, Hi guru! How can I assist?
+hey mentor, Hey mentor! What’s on your mind?
+hello guide, Hello guide! Need any help?
+hi oracle, Hi oracle! What’s the task?
+hello seer, Hello seer! How can I assist you today?
+hi sage, Hi sage! What’s up?
+hey philosopher, Hey philosopher! Need any help?
+hello thinker, Hello thinker! How can I help?
+hi strategist, Hi strategist! What’s the plan?
+hello planner, Hello planner! Need any help?
+hi analyst, Hi analyst! What’s up?
+hello consultant, Hello consultant! How can I assist you today?
+hi advisor, Hi advisor! What’s the task?
+hello counselor, Hello counselor! Need any help?
+hi therapist, Hi therapist! How can I help?
+hello coach, Hello coach! How can I assist?
+hi trainer, Hi trainer! What’s up?
+hey friend, Hey friend! How can I help?
+hello buddy, Hello buddy! Need any help?
+hi pal, Hi pal! What’s on your mind?
+hey mate, Hey mate! Need assistance?
+hello bro, Hello bro! How’s everything?
+hi dude, Hi dude! What’s up?
+hey sis, Hey sis! How can I help?
+hello friend, Hello friend! How’s your day?
+hi mate, Hi mate! Need any help?
+hey buddy, Hey buddy! What’s the task today?
+hello bro, Hello bro! How can I assist?
+hi dude, Hi dude! What’s up?
+hey champ, Hey champ! Need any help?
+hello ace, Hello ace! How can I assist?
+hi hero, Hi hero! What’s the plan today?
+hello legend, Hello legend! Need any help?
+hi star, Hi star! How can I assist?
+hello wizard, Hello wizard! How’s your day?
+hi magician, Hi magician! What’s up?
+hey rockstar, Hey rockstar! Need any help?
+hello sunshine, Hello sunshine! How can I assist?
+hi moonlight, Hi moonlight! How’s everything?
+hey champion, Hey champion! What’s up?
+hello genius, Hello genius! Need any help?
+hi brainiac, Hi brainiac! How can I assist?
+hello thinker, Hello thinker! How’s your day?
+hi strategist, Hi strategist! What’s up?
+hey planner, Hey planner! Need any help?
+hello analyst, Hello analyst! How can I assist?
+hi consultant, Hi consultant! What’s up?
+hey advisor, Hey advisor! Need any help?
+hello counselor, Hello counselor! What’s the plan today?
+hi therapist, Hi therapist! How can I assist?
+hello coach, Hello coach! Need any help?
+hi trainer, Hi trainer! What’s up?
+hey guru, Hey guru! How can I help?
+hello mentor, Hello mentor! Need any assistance?
+hi guide, Hi guide! What’s the task today?
+hello oracle, Hello oracle! Need any help?
+hi seer, Hi seer! How can I assist?
+hello sage, Hello sage! What’s up?
+hi philosopher, Hi philosopher! Need any help?
+hey intellect, Hey intellect! How’s everything?
+hello scientist, Hello scientist! Need any help?
+hi professor, Hi professor! How’s your day?
+hello expert, Hello expert! What’s up?
+greeting,response
+bonjour, Bonjour! Comment puis-je vous aider? (How can I help you?)
+hola, Hola! ¿Cómo puedo ayudarte? (How can I help you?)
+ciao, Ciao! Come posso aiutarti? (How can I help you?)
+konnichiwa, Konnichiwa! How can I assist you? 🇯🇵
+ni hao, Ni hao! How may I assist you today? 🇨🇳
+annyeong, Annyeong! Need any help? 🇰🇷
+salam, Salam! How may I assist you?
+merhaba, Merhaba! How can I help you?
+aloha, Aloha! How’s it going? 🌺
+guten tag, Guten Tag! Wie kann ich Ihnen helfen? (How can I help you?)
+namaste, Namaste! How may I help you? 🙏
+vanakkam, Vanakkam! How can I assist you?
+assalamu alaikum, Wa Alaikum Assalam! How can I help?
+shalom, Shalom! How can I assist you?
+sawubona, Sawubona! Kunjani? (How are you?)
+zdravo, Zdravo! Kako mogu da pomognem? (How can I help you?)
+privet, Privet! Kak ya mogu pomoch`? (How can I help you?)
+salut, Salut! Comment puis-je t`aider? (How can I help you?)
+olá, Olá! Como posso ajudá-lo? (How can I help you?)
+hallo, Hallo! Wie kann ich dir helfen? (How can I help you?)
+ciao, Ciao! Come stai? (How are you?)
+ahlan, Ahlan! Kayfa haluk? (How are you?)
+mingalarpar, Mingalarpar! Nei kaun: la? (How are you?)
+mingalaba, Mingalaba! Nei kaun: la? (How are you?)
+annyeonghaseyo, Annyeonghaseyo! Eotteoke jinaeseyo? (How are you?)
+nǐ hǎo, Nǐ hǎo! Nǐ hǎo ma? (How are you?)
+kamusta, Kamusta! Kumusta ka? (How are you?)
+salaam, Salaam! Khoda hafez. (God bless you.)
+hola, Hola! ¿Qué tal? (How are you?)
+konnichiwa, Konnichiwa! Ogenki desu ka? (How are you?)
+namaskaram, Namaskaram! Sukhamano? (How are you?)
+hajimemashite, Hajimemashite! Ogenki desu ka? (How are you?)
+buenos días, Buenos días! ¿Cómo estás? (How are you?)
+sawadee, Sawadee! Sabai dee mai? (How are you?)
+kalispera, Kalispera! Ti kanete? (How are you?)
+dobry den, Dobry den! Jak se máte? (How are you?)
+buna ziua, Buna ziua! Ce faci? (How are you?)
+jambo, Jambo! Habari gani? (How are you?)
+hej, Hej! Hur mår du? (How are you?)
+hei, Hei! Miten menee? (How are you?)
+hej, Hej! Hvordan har du det? (How are you?)
+ola, Ola! Como estás? (How are you?)
+salut, Salut! Ce mai faci? (How are you?)
+kumusta, Kumusta! Kumusta ka na? (How are you?)
+hei, Hei! Kuinka voit? (How are you?)
+hallo, Hallo! Wie geht`s dir? (How are you?)
+hei, Hei! Kuinka voit tänään? (How are you?)
+hallo, Hallo! Wie geht es Ihnen? (How are you?)
+ni hao, Ni hao! Ni hao ma? (How are you?)
+ola, Ola! Como estás? (How are you?)
+szia, Szia! Hogy vagy? (How are you?)
+hello, Hello! How are you today?
+aló, Aló! ¿Cómo estás hoy? (How are you today?)
+hei, Hei! Hvordan har du det i dag? (How are you today?)
+ahoj, Ahoj! Ako sa máš? (How are you?)
+γειά σου, Geia sou! Ti kaneis? (How are you?)
+zdravo, Zdravo! Kako si? (How are you?)
+konbanwa, Konbanwa! Ogenki desu ka? (How are you?)
+anyoung, Annyoung! Jal jinae? (How are you?)
+halò, Halò! Ciamar a tha thu? (How are you?)
+marhaba, Marhaba! Kifak? (How are you?)
+hej, Hej! Hur mår du? (How are you?)
+hei, Hei! Mitä kuuluu? (How are you?)
+bonsoir, Bonsoir! Comment ça va? (How are you?)
+hola, Hola! ¿Cómo estás? (How are you?)
+ciao, Ciao! Come stai? (How are you?)
+merhaba, Merhaba! Nasılsın? (How are you?)
+مرحبا, Marhaba! Kayfa haluka? (How are you?)
+ਸਤ ਸ੍ਰੀ ਅਕਾਲ, Sat Sri Akal! Tusi keve ho? (How are you?)
+ಹಲೋ, Halo! Hegidira? (How are you?)
+নমস্কার, Namaskar! Aapni kemana aachen? (How are you?)
+வணக்கம், Vanakkam! Eppadi irukke? (How are you?)
+జై, Jai! Ela unnavu? (How are you?)
+ഹലോ, Halo! Sughamano? (How are you?)
+ಗ್ರೀಟಿಂಗ್‌ಸ್‌, Greetings! Hegidira? (How are you?)
+হ্যালো, Hello! Kemon achho? (How are you?)
+hola, Hola! ¿Qué tal? (How are you?)
+bonjour, Bonjour! Comment vas-tu? (How are you?)
+안녕하세요, Annyeonghaseyo! Eotteoke jinaeseyo? (How are you?)
+ਸਤ ਸ੍ਰੀ ਅਕਾਲ, Sat Sri Akal! Tuhada ki hal hai? (How are you?)
+नमस्ते, Namaste! Aap kaise hain? (How are you?)
+હેલો, Halo! Kem chho? (How are you?)
+हॅलो, Hello! Tumhi kase aahat? (How are you?)
+هلا, Hala! Kayf halak? (How are you?)
+alo, Alo! Ce faci? (How are you?)
+xin chào, Xin chào! Bạn khỏe không? (How are you?)
+నమస్తే, నమస్తే! నేను మీకు ఎలా సహాయం చేయగలను? (Namaste! Nenu meeku ela sahayam cheyagalanu? - Hello! How can I assist you?)
+శుభోదయం, శుభోదయం! మీకు అద్భుతమైన రోజు కావాలని కోరుకుంటున్నాను! (Shubhodayam! Meeku adbhutamainarozu kavalanikorukuntunnanu! - Good morning! Have a great day!)
+శుభ సాయంత్రం, శుభ సాయంత్రం! ఈరోజు ఎలా ఉంది? (Shubha saayantram! Eeroju ela undi? - Good evening! How was your day?)
+శుభ రాత్రి, శుభ రాత్రి! మీకీ రాత్రి మంచి నిద్ర కావాలని కోరుకుంటున్నాను! (Shubha raatri! Meeki raatri manchi nidra kavalanikorukuntunnanu! - Good night! Sleep well and take care!)
+హలో, హలో! నేను మీకు ఎలా సహాయం చేయగలను? (Halo! Nenu meeku ela sahayam cheyagalanu? - Hello! How can I help you?)
+హాయ్, హాయ్! ఏముంది? (Hai! Emundi? - Hi! What’s up?)
+ఏమండి, ఏం జరుగుతుంది? (Emandi! Em jarugutundi? - What’s happening?)
+హలో మిత్రమా, హలో మిత్రమా! ఎలా ఉన్నారు? (Halo mitrama! Ela unnaru? - Hello friend! How are you?)
+నమస్కారం, నమస్కారం! మీకు సహాయం కావాలా? (Namaskaram! Meeku sahayam kavalaa? - Namaste! Do you need help?)
+హాయ్ మిత్రమా, హాయ్ మిత్రమా! ఏముంది? (Hai mitrama! Emundi? - Hi buddy! What’s up?)
+హాయ్ స్నేహితా, హాయ్ స్నేహితా! ఏముంది? (Hai sneha! Emundi? - Hi friend! What’s up?)
+హాయ్ సార్, హాయ్ సార్! నేను మీకు ఎలా సహాయం చేయగలను? (Hai saar! Nenu meeku ela sahayam cheyagalanu? - Hi sir! How can I assist you?)
+హలో మేడం, హలో మేడం! నేను మీకు ఎలా సహాయం చేయగలను? (Halo medam! Nenu meeku ela sahayam cheyagalanu? - Hello madam! How can I help you?)
+హాయ్ బాస్, హాయ్ బాస్! మీరు ఎలా ఉన్నారు? (Hai baas! Meeru ela unnaru? - Hi boss! How are you?)
+హాయ్ సూపర్‌స్టార్, హాయ్ సూపర్‌స్టార్! మీకు సహాయం చేయడానికి నేను ఇక్కడ ఉన్నాను! (Hai superstar! Meeku sahayam cheyadaniki nenu ikkada unnanu! - Hi superstar! I’m here to help you!)
+హలో శ్రేష్ఠ మిత్రమా, హలో శ్రేష్ఠ మిత్రమా! ఈ రోజు ఎలా ఉంది? (Halo shreshtha mitrama! Ee roju ela undi? - Hello best friend! How’s your day?)
+greeting,response
+jai sriram, Jai Sriram! How can I assist you today?
+hara hara mahadev, Hara Hara Mahadev! How may I help you?
+govind, Govind! What can I do for you?
+jai hanuman, Jai Hanuman! How can I assist you?
+jai mata di, Jai Mata Di! How can I help you today?
+jai shree krishna, Jai Shree Krishna! How may I assist you?
+jai ganesh, Jai Ganesh! What’s on your mind?
+jai durga, Jai Durga! How can I help?
+jai lakshmi, Jai Lakshmi! What can I do for you today?
+jai saraswati, Jai Saraswati! How may I assist you?
+jai kali, Jai Kali! How can I help you?
+jai bhairav, Jai Bhairav! How can I assist?
+jai parvati, Jai Parvati! What can I help you with?
+jai devi, Jai Devi! How may I assist you?
+jai kartikeya, Jai Kartikeya! How can I help?
+jai shiva, Jai Shiva! How can I assist you today?
+jai vishnu, Jai Vishnu! How may I help you?
+jai narayana, Jai Narayana! What can I do for you?
+jai rama, Jai Rama! How can I assist you?
+jai sita, Jai Sita! How can I help you today?
+jai radha, Jai Radha! How may I assist you?
+jai brahma, Jai Brahma! What’s on your mind?
+jai agni, Jai Agni! How can I help?
+jai indra, Jai Indra! What can I do for you today?
+jai surya, Jai Surya! How may I assist you?
+jai chandra, Jai Chandra! How can I help you?
+jai yama, Jai Yama! How can I assist?
+jai varuna, Jai Varuna! What can I help you with?
+jai kubera, Jai Kubera! How may I assist you?
+jai hanumantha, Jai Hanumantha! How can I help?
+jai bhima, Jai Bhima! How can I assist you today?
+jai arjuna, Jai Arjuna! How may I help you?
+jai nakula, Jai Nakula! What can I do for you?
+jai sahadeva, Jai Sahadeva! How can I assist you?
+jai draupadi, Jai Draupadi! How can I help you today?
+jai bhishma, Jai Bhishma! How may I assist you?
+jai karna, Jai Karna! What’s on your mind?
+jai krishna, Jai Krishna! How can I help?
+jai balarama, Jai Balarama! What can I do for you today?
+jai lakshmana, Jai Lakshmana! How may I assist you?
+jai bharata, Jai Bharata! How can I help you?
+jai shatrughna, Jai Shatrughna! How can I assist?
+jai ravana, Jai Ravana! What can I help you with?
+jai sita rama, Jai Sita Rama! How may I assist you?
+jai sita lakshmana, Jai Sita Lakshmana! How can I help?
+jai sita bharata, Jai Sita Bharata! What’s on your mind?
+jai sita shatrughna, Jai Sita Shatrughna! How can I assist you?
+jai sita hanuman, Jai Sita Hanuman! How may I help you?
+jai sita dasharatha, Jai Sita Dasharatha! How can I help?
+greeting,response
+హాయ్!, హాయ్! మీరు ఎలా ఉన్నారు? (Hai! Meeru ela unnaru? - Hi! How are you?)
+నమస్కారం!, నమస్కారం! మీకు సహాయం కావాలా? (Namaskaram! Meeku sahayam kavalaa? - Namaste! Do you need help?)
+శుభ సాయంత్రం!, శుభ సాయంత్రం! మీ రోజు ఎలా ఉంది? (Shubha saayantram! Mee roju ela undi? - Good evening! How was your day?)
+శుభ రాత్రి!, శుభ రాత్రి! మీకీ రాత్రి మంచి నిద్ర కావాలని కోరుకుంటున్నాను! (Shubha raatri! Meeki raatri manchi nidra kavalanikorukuntunnanu! - Good night! Sleep well and take care!)
+హలో!, హలో! నేను మీకు ఎలా సహాయం చేయగలను? (Halo! Nenu meeku ela sahayam cheyagalanu? - Hello! How can I help you?)
+హాయ్!, హాయ్! మీకు ఏముంది? (Hai! Meeku emundi? - Hi! What’s up?)
+మాత్రాలు అందరికీ, మాత్రాలు అందరికీ! మీరు ఎలా ఉన్నారు? (Maatraalu andariki, maatraalu andariki! Meeru ela unnaru? - Greetings everyone! How are you?)
+నమస్కారం!, నమస్కారం! మీరు ఎలా ఉన్నారు? (Namaskaram! Meeru ela unnaru? - Namaste! How are you?)
+వందనాలు!, వందనాలు! మీరు ఎలా ఉన్నారు? (Vandanaalu! Meeru ela unnaru? - Salutations! How are you?)
+శుభోదయం!, శుభోదయం! మీకు అద్భుతమైన రోజు కావాలని కోరుకుంటున్నాను! (Shubhodayam! Meeku adbhutamainarozu kavalanikorukuntunnanu! - Good morning! Have a great day!)
+శుభ సాయంత్రం!, శుభ సాయంత్రం! మీ రోజు ఎలా ఉంది? (Shubha saayantram! Mee roju ela undi? - Good evening! How was your day?)
+శుభరాత్రి!, శుభరాత్రి! మీకు మంచి రాత్రి కావాలని కోరుకుంటున్నాను! (Shubha raatri! Meeku manchi raatri kavalanikorukuntunnanu! - Good night! Have a good night!)
+హాయ్ మిత్రమా!, హాయ్ మిత్రమా! మీరు ఎలా ఉన్నారు? (Hai mitrama! Meeru ela unnaru? - Hi friend! How are you?)
+హలో స్నేహితా!, హలో స్నేహితా! మీకు సహాయం కావాలా? (Halo sneha! Meeku sahayam kavalaa? - Hello friend! Do you need help?)
+హాయ్ సర్!, హాయ్ సర్! మీరు ఎలా ఉన్నారు? (Hai sir! Meeru ela unnaru? - Hi sir! How are you?)
+హలో మేడం!, హలో మేడం! మీరు ఎలా ఉన్నారు? (Halo madam! Meeru ela unnaru? - Hello madam! How are you?)
+హాయ్ బాస్!, హాయ్ బాస్! మీకు ఏముంది? (Hai boss! Meeku emundi? - Hi boss! What’s up?)
+హాయ్ సూపర్‌స్టార్!, హాయ్ సూపర్‌స్టార్! మీకు సహాయం చేయడానికి నేను ఇక్కడ ఉన్నాను! (Hai superstar! Meeku sahayam cheyadaniki nenu ikkada unnanu! - Hi superstar! I’m here to help you!)
+హలో బెస్ట్ ఫ్రెండ్!, హలో బెస్ట్ ఫ్రెండ్! మీ రోజు ఎలా ఉంది? (Halo best friend! Mee roju ela undi? - Hello best friend! How’s your day?)
+హాయ్ మిత్రమా!, హాయ్ మిత్రమా! మీకు సహాయం కావాలా? (Hai mitrama! Meeku sahayam kavalaa? - Hi buddy! Do you need help?)
+హలో ప్రియమా!, హలో ప్రియమా! మీకు సహాయం కావాలా? (Halo priya! Meeku sahayam kavalaa? - Hello dear! Do you need help?)
+హాయ్ ప్రాణమా!, హాయ్ ప్రాణమా! మీరు ఎలా ఉన్నారు? (Hai pranama! Meeru ela unnaru? - Hi dear! How are you?)
+హలో గౌరవమా!, హలో గౌరవమా! మీరు ఎలా ఉన్నారు? (Halo gauravama! Meeru ela unnaru? - Hello respected one! How are you?)
+హాయ్ సత్యమా!, హాయ్ సత్యమా! మీకు సహాయం కావాలా? (Hai satyama! Meeku sahayam kavalaa? - Hi truth! Do you need help?)
+హలో ధర్మమా!, హలో ధర్మమా! మీరు ఎలా ఉన్నారు? (Halo dharmama! Meeru ela unnaru? - Hello righteousness! How are you?)
+హాయ్ శక్తి!, హాయ్ శక్తి! మీకు సహాయం కావాలా? (Hai shakti! Meeku sahayam kavalaa? - Hi strength! Do you need help?)
+హలో విజయం!, హలో విజయం! మీరు ఎలా ఉన్నారు? (Halo vijayam! Meeru ela unnaru? - Hello victory! How are you?)
+హాయ్ ఆశీర్వాదం!, హాయ్ ఆశీర్వాదం! మీకు సహాయం కావాలా? (Hai ashirvadam! Meeku sahayam kavalaa? - Hi blessing! Do you need help?)
+హలో క్షమ!, హలో క్షమ! మీరు ఎలా ఉన్నారు? (Halo kshama! Meeru ela unnaru? - Hello forgiveness! How are you?)
+హాయ్ సంకల్పం!, హాయ్ సంకల్పం! మీకు సహాయం కావాలా? (Hai sankalpam! Meeku sahayam kavalaa? - Hi determination! Do you need help?)
+హలో జ్ఞానం!, హలో జ్ఞానం! మీరు ఎలా ఉన్నారు? (Halo jnanam! Meeru ela unnaru? - Hello knowledge! How are you?)
+హాయ్ వినయం!, హాయ్ వినయం! మీకు సహాయం కావాలా? (Hai vinayam! Meeku sahayam kavalaa? - Hi humility! Do you need help?)
+హలో శాంతి!, హలో శాంతి! మీరు ఎలా ఉన్నారు? (Halo shanti! Meeru ela unnaru? - Hello peace! How are you?)
+హాయ్ నిర్మల!, హాయ్ నిర్మల! మీకు సహాయం కావాలా? (Hai nirmala! Meeku sahayam kavalaa? - Hi purity! Do you need help?)
+హలో దయ!, హలో దయ! మీరు ఎలా ఉన్నారు? (Halo daya! Meeru ela unnaru? - Hello kindness! How are you?)
+హాయ్ ప్రశాంతి!, హాయ్ ప్రశాంతి! మీకు సహాయం కావాలా? (Hai prashanti! Meeku sahayam kavalaa? - Hi tranquility! Do you need help?)
+హలో ఆత్మవిశ్వాసం!, హలో ఆత్మవిశ్వాసం! మీరు ఎలా ఉన్నారు? (Halo atmaviswasam! Meeru ela unnaru? - Hello self-confidence! How are you?)
+హాయ్ ధైర్యం!, హాయ్ ధైర్యం! మీకు సహాయం కావాలా? (Hai dhairyam! Meeku sahayam kavalaa? - Hi courage! Do you need help?)
+హలో సామర్థ్యం!, హలో సామర్థ్యం! మీరు ఎలా ఉన్నారు? (Halo samarthyam! Meeru ela unnaru? - Hello ability! How are you?)

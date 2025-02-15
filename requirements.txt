@@ -1,0 +1,9 @@
+Flask
+Werkzeug
+mysql-connector-python
+requests
+beautifulsoup4
+wikipedia-api
+googletrans==4.0.0-rc1
+geocoder
+pyttsx3

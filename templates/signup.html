@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraBot</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url("https://img.freepik.com/premium-photo/search-bar-icon-search-3d-render-minimal-design-multicolor-background_41204-14142.jpg?ga=GA1.1.453783370.1725521868&semt=ais_hybrid") no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Container for stars, should cover the entire screen */
+        #stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Star Animation (falling effect) */
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            animation: fall 3s linear infinite, twinkling 1.5s infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10%;
+                opacity: 1;
+            }
+
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes twinkling {
+            0% {
+                transform: scale(0.5);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0.5);
+                opacity: 0.7;
+            }
+        }
+
+        /* Quote Section */
+        .quote {
+            position: absolute;
+            right: 10%;
+            top: 10%;
+            color: white;
+            font-size: 1.5rem;
+            text-align: right;
+            z-index: 1;
+        }
+
+        .quote h2 {
+            margin: 0;
+        }
+
+        /* Container Style */
+        .container {
+            padding: 30px;
+            background-size: cover;
+            border: 1px solid;
+            max-height: 500px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            text-align: center;
+            overflow-y: scroll;
+            transition: transform 0.2s;
+            position: relative;
+            z-index: 2;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        h2,
+        h3 {
+            color: #3ef714;
+            font-weight: 500;
+            width: 500px;
+            text-align: center;
+        }
+
+        h3,
+        .title {
+            color: white;
+        }
+
+        h2 span {
+            color: red;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #0fe7ff;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="file"] {
+            width: 90%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #b1b2b59c;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            color: rgb(255, 255, 255);
+        }
+
+        input:focus {
+            border-color: #6e8efb;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #6e8efb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #507be7;
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            display: block;
+            color: #ff0000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            margin-top: 20px;
+        }
+
+        .links a:hover {
+            color: #5a7acb;
+            text-decoration: none;
+        }
+
+        .login-btn {
+            background-color: green;
+            color: white;
+        }
+
+        .login-btn a {
+            color: white;
+            margin-top: 0;
+        }
+
+        .login-btn a:hover,
+        .login-btn:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .login-btn:hover {
+            background-color: rgb(12, 207, 12);
+        }
+
+        /* Media Queries */
+        @media (max-width: 1300px) {
+
+            .quote {
+                top: 0;
+                left: 50%;
+                width: 100%;
+                transform: translate(-34%);
+                text-align: center;
+            }
+
+            .container {
+                position: relative;
+                top: 60%;
+                transform: translateY(-50%);
+            }
+
+            .subquote,
+            h3 {
+                display: none;
+            }
+        }
+
+        @media(min-width:1300px) {
+            .tittle {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+
+            .container {
+                position: absolute;
+                left: 10%;
+            }
+        }
+
+        @media (max-width: 769px) {
+
+            .container {
+                position: absolute;
+                left: 10%;
+                width: 350px;
+                align-items: center;
+                text-align: center;
+            }
+
+            h2 {
+                margin-left: -50px;
+            }
+
+            .subquote {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Stars effect container -->
+    <div id="stars"></div>
+
+    <!-- Quote Section -->
+    <div class="quote">
+        <h2 class="title">AuraBot: Interactive voice and chat partner</h2>
+        <h2 class="subquote"><span> The AuraBot Revolution :- </span>where technology meets intuition, and your journey
+            towards smarter solutions begins!</h2>
+        <h3>"AuraBot is not just an assistant, but a bridge between human curiosity and technology's limitless
+            potential. With every interaction, it learns, adapts, and evolves, helping you unlock new possibilities. In
+            a world where knowledge is power, AuraBot is the spark that ignites your journey to innovation."</h3>
+    </div>
+
+    <!-- Signup Form Container -->
+    <div class="container">
+        <h2>Signup</h2>
+        <form id="signupForm" method="POST" action="/signup" enctype="multipart/form-data">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+            <label for="zipcode">Zip Code:</label>
+            <input type="text" id="zipcode" name="zipcode" required>
+            <label for="profile_image">Profile Image:</label>
+            <input type="file" id="profile_image" name="profile_image">
+            <button type="submit">Signup</button>
+        </form>
+        <div class="links">
+            Already have an account?
+            <button class="login-btn"><a href="/login"> Login</a></button>
+            <a href="/terms">Terms and Conditions</a>
+            <a href="/privacy">Privacy Policy</a>
+        </div>
+    </div>
+
+    <script>
+        // Create falling stars effect
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement("div");
+            star.classList.add("star");
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.width = `${Math.random() * 3 + 2}px`; // Random star size
+            star.style.height = star.style.width;
+            star.style.animationDuration = `${Math.random() * 2 + 3}s`; // Varying animation speeds
+            document.getElementById("stars").appendChild(star);
+        }
+
+        // Show success alert after form submission
+        // const form = document.getElementById("signupForm");
+        // form.addEventListener("submit", function (event) {
+        //     event.preventDefault(); // Prevent form submission for demo purposes
+        //     alert("Signup successful!");
+        //     window.location.href = "/login"; // Redirect to login page
+        // });
+    </script>
+</body>
+
+</html>

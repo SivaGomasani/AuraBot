@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            overflow: scroll;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            color: #000;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        a.back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a.back-button:hover {
+            background-color: #003d80;
+        }
+
+        .stars {
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            position: absolute;
+            top: -10px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="star-container" class="star-container"></div>
+    <a href="{{ url_for('start') }}" class="back-button">Back to Dashboard</a>
+    <h1>Your Search History</h1>
+    <table>
+        <tr>
+            <th>Command</th>
+            <th>Response</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for entry in history %}
+        <tr>
+            <td>{{ entry.command }}</td>
+            <td>{{ entry.response }}</td>
+            <td>{{ entry.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script>
+        function createStars() {
+            const starContainer = document.getElementById('star-container');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'stars';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.animationDuration = Math.random() * 10 + 5 + 's';
+                star.style.animationDelay = Math.random() * 10 + 's';
+                starContainer.appendChild(star);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+        });
+    </script>
+</body>
+
+</html>

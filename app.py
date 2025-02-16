@@ -481,102 +481,110 @@ def api_chat():
     command = request.json.get('command').lower()
     response = ""
 
-    if session.get('child_mode', False):
-        response = command
-    elif command in emoji_responses:
-        response = emoji_responses[command]
-    elif command in greetings_responses:
-        response = greetings_responses[command]
-    elif "translate" in command:
-        parts = command.rsplit(" to ", 1)
-        if len(parts) == 2:
-            text_to_translate = parts[0].replace("translate ", "").strip()
-            target_lang = parts[1].strip()
-            response = perform_translation(text_to_translate, target_lang)
-    elif "time" in command:
-        current_time = datetime.datetime.now().strftime('%H:%M:%S')
-        response = f"The current time is {current_time}."
-    elif "date" in command:
-        current_date = datetime.datetime.now().strftime('%Y-%m-%d')
-        response = f"Today's date is {current_date}."
-    elif "day" in command:
-        current_day = datetime.datetime.now().strftime('%A')
-        response = f"Today is {current_day}."
-    elif "location" in command:
-        g = geocoder.ip('me')
-        location = g.city if g.city else "Location not found"
-        response = f"Your current location is {location}."
-    elif command.startswith("image "):
-        search_term = command[6:]
-        image_paths = fetch_image(search_term)
-        response = {"images": image_paths}
-    elif command.startswith("exchange rate "):
-        parts = command.split(" to ")
-        if len(parts) == 2:
-            base_currency = parts[0].replace("exchange rate ", "").strip()
-            target_currency = parts[1].strip()
-            response = get_exchange_rate(base_currency, target_currency)
+    try:
+        if session.get('child_mode', False):
+            response = command
+        elif command in emoji_responses:
+            response = emoji_responses[command]
+        elif command in greetings_responses:
+            response = greetings_responses[command]
+        elif "translate" in command:
+            parts = command.rsplit(" to ", 1)
+            if len(parts) == 2:
+                text_to_translate = parts[0].replace("translate ", "").strip()
+                target_lang = parts[1].strip()
+                response = perform_translation(text_to_translate, target_lang)
+        elif "time" in command:
+            current_time = datetime.datetime.now().strftime('%H:%M:%S')
+            response = f"The current time is {current_time}."
+        elif "date" in command:
+            current_date = datetime.datetime.now().strftime('%Y-%m-%d')
+            response = f"Today's date is {current_date}."
+        elif "day" in command:
+            current_day = datetime.datetime.now().strftime('%A')
+            response = f"Today is {current_day}."
+        elif "location" in command:
+            g = geocoder.ip('me')
+            location = g.city if g.city else "Location not found"
+            response = f"Your current location is {location}."
+        elif command.startswith("image "):
+            search_term = command[6:]
+            image_paths = fetch_image(search_term)
+            response = {"images": image_paths}
+        elif command.startswith("exchange rate "):
+            parts = command.split(" to ")
+            if len(parts) == 2:
+                base_currency = parts[0].replace("exchange rate ", "").strip()
+                target_currency = parts[1].strip()
+                response = get_exchange_rate(base_currency, target_currency)
+            else:
+                response = "Please provide a valid command in the format 'exchange rate USD to INR'."
+        elif "joke" in command or "make me laugh" in command:
+            response = get_random_joke()
+        elif "quote" in command or "inspirational quote" in command:
+            response = get_random_quote()
+        elif "news" in command:
+            response = get_telugu_news()
+        elif command.startswith("weather"):
+            parts = command.split()
+            if len(parts) == 3:
+                lat = float(parts[1])
+                lon = float(parts[2])
+                response = get_weather(lat, lon)
+            else:
+                response = "Please provide latitude and longitude in the format 'weather lat lon'."
+        elif "more" in command or "continue" in command:
+            response = previous_response
         else:
-            response = "Please provide a valid command in the format 'exchange rate USD to INR'."
-    elif "joke" in command or "make me laugh" in command:
-        response = get_random_joke()
-    elif "quote" in command or "inspirational quote" in command:
-        response = get_random_quote()
-    elif "news" in command:
-        response = get_telugu_news()
-    elif command.startswith("weather"):
-        parts = command.split()
-        if len(parts) == 3:
-            lat = float(parts[1])
-            lon = float(parts[2])
-            response = get_weather(lat, lon)
+            query_response = next((item['response'] for item in commands_dataset if item['command'].lower() in command), None)
+            if not query_response:
+                query_response = get_wikipedia_info(command)
+            if "No information found on Wikipedia" in query_response:
+                response = "Command not recognized or could not be processed."
+            else:
+                response = query_response
+
+        # Store the previous query and response
+        previous_query = command
+        previous_response = response
+
+        # Ensure user is logged in
+        username = session.get('username')
+        if not username:
+            return jsonify({'error': 'User not logged in'})
+
+        # Get user ID from the database
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT id FROM users WHERE username=?", (username,))
+        user = cursor.fetchone()
+
+        if user:
+            user_id = user['id']
+            logging.debug(f"User ID: {user_id}")  # Log user ID for debugging
+
+            # Insert into user history
+            cursor.execute("INSERT INTO user_history (user_id, command, response) VALUES (?, ?, ?)", 
+                           (user_id, command, response))
+            conn.commit()
+            logging.debug("History saved successfully")  # Log success
         else:
-            response = "Please provide latitude and longitude in the format 'weather lat lon'."
-    elif "more" in command or "continue" in command:
-        response = previous_response
-    else:
-        query_response = next((item['response'] for item in commands_dataset if item['command'].lower() in command), None)
-        if not query_response:
-            query_response = get_wikipedia_info(command)
-        if "No information found on Wikipedia" in query_response:
-            response = "Command not recognized or could not be processed."
-        else:
-            response = query_response
+            logging.error("User not found")  # Log error if user not found
 
-    # Store the previous query and response
-    previous_query = command
-    previous_response = response
+        conn.close()
 
-    # Ensure user is logged in
-    username = session.get('username')
-    if not username:
-        return jsonify({'error': 'User not logged in'})
+        # Debugging: Log the command and response
+        logging.debug(f"Command: {command}")
+        logging.debug(f"Response: {response}")
 
-    # Get user ID from the database
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT id FROM users WHERE username=?", (username,))
-    user = cursor.fetchone()
+        return jsonify({'response': response})
 
-    if user:
-        user_id = user['id']
-        print(f"User ID: {user_id}")  # Log user ID for debugging
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
+        return jsonify({'error': str(e)}), 500
 
-        # Insert into user history
-        cursor.execute("INSERT INTO user_history (user_id, command, response) VALUES (?, ?, ?)", 
-                       (user_id, command, response))
-        conn.commit()
-        print("History saved successfully")  # Log success
-    else:
-        print("User not found")  # Log error if user not found
-
-    conn.close()
-
-    # Debugging: Log the command and response
-    print(f"Command: {command}")
-    print(f"Response: {response}")
-
-    return jsonify({'response': response})
+if __name__ == '__main__':
+    app.run(debug=True)
 
 @app.route('/logout')
 def logout():

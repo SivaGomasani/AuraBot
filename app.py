@@ -112,8 +112,11 @@ def get_session_history(username):
     return chat_histories.setdefault(username, [])
 
 
-OPENROUTER_API_KEY = "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"
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 
 def query_openai_assistant(prompt, username=None):

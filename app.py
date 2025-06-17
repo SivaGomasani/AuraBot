@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, send_file
 import os
 import csv
-import mysql.connector
 from werkzeug.utils import secure_filename
 import requests
 from bs4 import BeautifulSoup
@@ -13,13 +12,13 @@ import pyttsx3
 import logging
 from werkzeug.security import check_password_hash
 from werkzeug.security import generate_password_hash
+import sqlite3
 
 import random
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
-import sqlite3
 
 def get_db_connection():
     """Establish a connection with signupDB.db"""
@@ -583,8 +582,6 @@ def api_chat():
         logging.error(f"An error occurred: {e}")
         return jsonify({'error': str(e)}), 500
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
 @app.route('/logout')
 def logout():

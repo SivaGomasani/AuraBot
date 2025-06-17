@@ -1,77 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify, send_file
-import os
-import csv
-from werkzeug.utils import secure_filename
-import requests
-from bs4 import BeautifulSoup
-import pyttsx3
-import logging
-from werkzeug.security import check_password_hash, generate_password_hash
-import sqlite3
-import random
-from io import BytesIO
 
-
-import random
-
-app = Flask(__name__)
-app.secret_key = 'supersecretkey'
-
-HUGGINGFACE_API_KEY = "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"
-HF_API_URL = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta"
-HF_IMAGE_API_URL = "https://api-inference.huggingface.co/models/CompVis/stable-diffusion-v1-4"
-
-# In-memory chat history (for session-based simulation)
-chat_histories = {}
-
-def get_db_connection():
-    """Establish a connection with signupDB.db"""
-    conn = sqlite3.connect('signupDB.db')
-    conn.row_factory = sqlite3.Row  # Access columns by name
-    return conn
-
-
-UPLOAD_FOLDER = 'static/uploads/'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-
-def create_tables():
-    """Create users and user_history tables if they don't exist"""
-    conn = get_db_connection()
-    cursor = conn.cursor()
-
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT UNIQUE NOT NULL,
-            password TEXT NOT NULL,
-            email TEXT,
-            phone TEXT,
-            dob TEXT,
-            address TEXT,
-            city TEXT,
-            zipcode TEXT,
-            profile_image TEXT
-        )
-    ''')
-
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS user_history (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
-            command TEXT,
-            response TEXT,
-            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY(user_id) REFERENCES users(id)
-        )
-    ''')
-
-    conn.commit()
-    conn.close()
-
-# Ensure tables are created at startup
-create_tables()
 
 # Load predefined data
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, send_file
@@ -92,10 +19,6 @@ import random
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
-
-HUGGINGFACE_API_KEY = "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"
-HF_API_URL = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta"
-HF_IMAGE_API_URL = "https://api-inference.huggingface.co/models/CompVis/stable-diffusion-v1-4"
 
 # In-memory chat history (for session-based simulation)
 chat_histories = {}

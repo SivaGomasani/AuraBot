@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     const chatScreen = document.getElementById('chatScreen');
     const chatInput = document.getElementById('chatInput');
     const micButton = document.getElementById('micButton');
@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const emojiPicker = document.getElementById('emojiPicker');
     let isListening = false;
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    const username = "User"; // Change this to the desired username
+    const username = "User";
     let commands = [];
-    let imageData = null; // Store image data temporarily
+    let imageData = null;
 
     // Fetch commands from the Flask backend
     fetch('/api/commands')
@@ -18,19 +18,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
         .catch(error => console.error('Error fetching commands:', error));
 
     // Function to send chat
-    function sendChat() {
+   function sendChat() {
         const userText = chatInput.value.trim();
         if (userText || imageData) {
-            if (userText) {
-                addChatBubble(`User: ${userText}`, 'user');
-            }
+            if (userText) addChatBubble(userText, 'user');
             if (imageData) {
-                addChatBubble(`User sent an image:`, 'user', imageData);
-                imageData = null; // Reset the imageData after sending
+                addChatBubble('User sent an image:', 'user', imageData);
+                imageData = null;
                 clearImagePreview();
             }
-            chatInput.value = '';  // Reset text input
-            getResponse(userText);  // Send text input
+            chatInput.value = '';
+            getResponse(userText);
         }
     }
 
@@ -41,14 +39,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    // Add event listener for "Enter" key
-    chatInput.addEventListener('keypress', function (event) {
-        if (event.key === 'Enter') {
-            sendChat();
-        }
-    });
-
     // Add event listener for "Send" button
+    chatInput.addEventListener('keypress', e => e.key === 'Enter' && sendChat());
     sendButton.addEventListener('click', sendChat);
 
     // Function to toggle microphone
@@ -66,52 +58,45 @@ document.addEventListener('DOMContentLoaded', (event) => {
     micButton.addEventListener('click', toggleMic);
 
     // Function to add chat bubble
-    function addChatBubble(text, sender, imageUrl = null) {
+   function addChatBubble(text, sender, imageUrl = null) {
         const bubble = document.createElement('div');
         bubble.className = `chat-message ${sender}`;
-        
+
         const card = document.createElement('div');
         card.className = 'card';
-        
-        if (sender === 'aurabot') {
-            const typingEffect = document.createElement('span');
-            typingEffect.className = 'typing';
-            card.appendChild(typingEffect);
-            bubble.appendChild(card);
-            document.getElementById('chatScreen').appendChild(bubble);
-            document.getElementById('chatScreen').scrollTop = document.getElementById('chatScreen').scrollHeight;
-            
-            let i = 0;
-            const speed = 0; // Adjust typing speed
-            function typeWriter() {
-                if (i < text.length) {
-                    typingEffect.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, speed);
-                } else {
-                    typingEffect.classList.remove('typing'); // Remove cursor effect
-                }
-            }
-            typeWriter();
-        } else {
-            if (text) {
-                const textElement = document.createElement('p');
-                textElement.innerText = text;
-                card.appendChild(textElement);
-            }
-            if (imageUrl) {
-                const image = document.createElement('img');
-                image.src = imageUrl;
-                image.alt = 'Sent Image';
-                image.classList.add('chat-image');
-                card.appendChild(image);
-            }
-            bubble.appendChild(card);
-            document.getElementById('chatScreen').appendChild(bubble);
-            document.getElementById('chatScreen').scrollTop = document.getElementById('chatScreen').scrollHeight;
+
+        if (imageUrl) {
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = 'Sent Image';
+            img.className = 'chat-image';
+            card.appendChild(img);
         }
+
+      if (text.includes('```')) {
+    const codeBlock = document.createElement('pre');
+    const code = document.createElement('code');
+    code.innerText = text.replace(/```/g, '').trim();
+    codeBlock.appendChild(code);
+    card.appendChild(codeBlock);
+} else {
+    const p = document.createElement('p');
+    p.innerText = text;
+    card.appendChild(p);
+}
+
+
+        bubble.appendChild(card);
+        chatScreen.appendChild(bubble);
+        chatScreen.scrollTop = chatScreen.scrollHeight;
     }
-    
+
+    recognition.onresult = event => {
+        const command = event.results[0][0].transcript;
+        addChatBubble(command, 'user');
+        getResponse(command);
+    };
+
     // Voice recognition results
     recognition.onresult = function (event) {
         const command = event.results[0][0].transcript;
@@ -126,51 +111,81 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Function to get a response
     function getResponse(userText) {
-        // Check content mode
-        const isAdultMode = localStorage.getItem("adultMode") === "enabled";
-    
-        if (isAdultMode) {
-            // In Adult Mode, find predefined commands or fetch a response from the API
-            const responseObj = commands.find(c => userText.toLowerCase().includes(c.command.toLowerCase()));
-    
-            if (responseObj) {
-                addChatBubble(`AuraBot: ${responseObj.response}`, 'aurabot');
-                stopCurrentSpeech();
-                textToSpeech(responseObj.response);
-            } else {
-                fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ command: userText })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    stopCurrentSpeech();
-    
-                    // Check if there's an image in the response
-                    if (data.image_url) {
-                        addChatBubble(`AuraBot: ${data.response}`, 'aurabot', data.image_url);
-                    } else {
-                        addChatBubble(`AuraBot: ${data.response}`, 'aurabot');
-                    }
-                    
-                    textToSpeech(data.response);
-                })
-                .catch(error => {
-                    console.error('Error fetching chat response:', error);
-                    addChatBubble("AuraBot: Sorry, I couldn't understand that.", 'aurabot');
-                    stopCurrentSpeech();
-                    textToSpeech("Sorry, I couldn't understand that.");
-                });
-            }
-        } else {
-            // In Child Mode, repeat the command as the response
-            addChatBubble(`AuraBot: ${userText}`, 'aurabot');
+    const isAdultMode = localStorage.getItem("adultMode") === "enabled";
+
+    // Create a placeholder typing bubble
+    const typingBubble = document.createElement('div');
+    typingBubble.className = 'chat-message aurabot typing-bubble';
+    typingBubble.innerHTML = `
+        <div class="card">
+            <p><em>AuraBot is typing...</em></p>
+        </div>
+    `;
+    chatScreen.appendChild(typingBubble);
+    chatScreen.scrollTop = chatScreen.scrollHeight;
+
+    if (isAdultMode) {
+        const match = commands.find(c => userText.toLowerCase().includes(c.command.toLowerCase()));
+
+        if (match) {
+            updateTypingBubble(match.response);
             stopCurrentSpeech();
-            textToSpeech(userText);
+            textToSpeech(match.response);
+        } else {
+            fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ command: userText })
+            })
+            .then(res => res.json())
+            .then(data => {
+                stopCurrentSpeech();
+                updateTypingBubble(data.response, data.image_url);
+                textToSpeech(data.response);
+            })
+            .catch(err => {
+                console.error('Error fetching chat:', err);
+                updateTypingBubble("Sorry, I couldn't understand that.");
+                stopCurrentSpeech();
+                textToSpeech("Sorry, I couldn't understand that.");
+            });
         }
+    } else {
+        updateTypingBubble(userText);
+        stopCurrentSpeech();
+        textToSpeech(userText);
     }
-    
+}
+
+function updateTypingBubble(finalText, imageUrl = null) {
+    const typingBubble = document.querySelector('.typing-bubble');
+    if (!typingBubble) return;
+
+    const card = typingBubble.querySelector('.card');
+    card.innerHTML = ''; // Clear "typing..."
+
+    if (finalText.includes('```')) {
+        const codeBlock = document.createElement('pre');
+        codeBlock.innerHTML = `<code>${finalText.replace(/```/g, '').trim()}</code>`;
+        card.appendChild(codeBlock);
+    } else {
+        const p = document.createElement('p');
+        p.innerText = finalText;
+        card.appendChild(p);
+    }
+
+    if (imageUrl) {
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.alt = 'AuraBot Image';
+        img.className = 'chat-image';
+        card.appendChild(img);
+    }
+
+    typingBubble.classList.remove('typing-bubble'); // Mark as completed
+    chatScreen.scrollTop = chatScreen.scrollHeight;
+}
+
     // Text-to-Speech function
     function textToSpeech(text) {
         const isTextToSpeechEnabled = localStorage.getItem("ttsEnabled") === "true";
@@ -216,23 +231,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById('imageInput').click();
     });
 
-    document.getElementById('imageInput').addEventListener('change', function(event) {
+     document.getElementById('imageInput').addEventListener('change', event => {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
-                const imageUrl = e.target.result;
-                const imagePreview = document.createElement('img');
-                imagePreview.src = imageUrl;
-                imagePreview.alt = 'Image Preview';
-                imagePreview.classList.add('image-preview');
-                imagePreview.style.width = '30px';  // Set image width to 30px
-                imagePreview.style.height = '30px'; // Set image height to 30px
-                chatInput.value = '';  // Clear any existing text in the input field
-                chatInput.parentNode.insertBefore(imagePreview, chatInput); // Insert image into input field
-                imageData = imageUrl;  // Store the image URL for sending it later
+            reader.onload = e => {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.classList.add('image-preview');
+                img.style.width = '30px';
+                img.style.height = '30px';
+                chatInput.parentNode.insertBefore(img, chatInput);
+                imageData = e.target.result;
             };
-            reader.readAsDataURL(file); // Convert image to Base64 string
+            reader.readAsDataURL(file);
         }
     });
 

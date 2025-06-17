@@ -345,6 +345,7 @@ input:checked + .slider:before {
 /* Assistant Message Styles */
 .chat-message.aurabot {
     justify-content: flex-start;
+    color: red;
 }
 
 .chat-message.aurabot .card {
@@ -357,8 +358,29 @@ input:checked + .slider:before {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 50%;
     overflow-wrap: break-word;
-    white-space: normal
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    max-width: 80%;
+    width: fit-content;
 }
+
+.chat-message .card p,
+.chat-message .card pre,
+.chat-message .card code {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+.typing-bubble .card p {
+    font-style: italic;
+    color: #666;
+}
+
 
 /* Hide Scrollbar */
 ::-webkit-scrollbar {

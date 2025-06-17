@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 import requests
 from bs4 import BeautifulSoup
 import wikipediaapi
-from googletrans import Translator
+# from googletrans import Translator
 import datetime
 import geocoder
 import pyttsx3
@@ -13,6 +13,7 @@ import logging
 from werkzeug.security import check_password_hash
 from werkzeug.security import generate_password_hash
 import sqlite3
+from bs4 import BeautifulSoup
 
 import random
 
@@ -149,20 +150,16 @@ def get_random_quote():
         return "Quote data could not be retrieved."
     
 
-from bs4 import BeautifulSoup
 
 
 BeautifulSoup
 
-#news fetching
-translator = Translator()
-
 def translate_to_english(text):
     try:
-        translation = translator.translate(text, src='te', dest='en')
-        return translation.text
+        return perform_translation(text, 'en')
     except Exception as e:
         return f"Translation error: {str(e)}"
+
 
 def get_eenadu_news():
     url = "https://www.eenadu.net/telugu-news"
@@ -227,21 +224,20 @@ def get_telugu_news():
     andhra_jyothi_news = get_andhra_jyothi_news()
     return f"{eenadu_news}\n\n{sakshi_news}\n\n{andhra_jyothi_news}"
 # Function to translate text
-from googletrans import Translator
+def perform_translation(text, dest_lang='en'):
+    url = "https://libretranslate.de/translate"
+    payload = {
+        "q": text,
+        "source": "auto",
+        "target": dest_lang,
+        "format": "text"
+    }
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    response = requests.post(url, data=payload, headers=headers)
+    return response.json().get("translatedText", "Translation failed.")
 
-def perform_translation(text, dest_lang='te'):
-    try:
-        translator = Translator()
-        translated = translator.translate(text, dest=dest_lang)
-
-        # Ensure we correctly extract the translated text
-        if translated and hasattr(translated, 'text'):
-            return translated.text
-        else:
-            return "Translation failed: Invalid response format."
-    
-    except Exception as e:
-        return f"Translation failed: {str(e)}"
 
 # Function to fetch images using Google Image search (scraping)
 def fetch_image(query):
@@ -492,7 +488,7 @@ def api_chat():
             if len(parts) == 2:
                 text_to_translate = parts[0].replace("translate ", "").strip()
                 target_lang = parts[1].strip()
-                response = perform_translation(text_to_translate, target_lang)
+                response = translator.translate(text_to_translate, dest=target_lang)
         elif "time" in command:
             current_time = datetime.datetime.now().strftime('%H:%M:%S')
             response = f"The current time is {current_time}."
